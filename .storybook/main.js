@@ -7,5 +7,9 @@ module.exports = {
   "addons": [
     "@storybook/addon-essentials",
 
-  ]
+  ],
+  webpackFinal: (config) => {
+    config.resolve.modules.push('../src')
+    return config
+  }
 }
