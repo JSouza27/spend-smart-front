@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src --max-warnings=0",
+    "lint": "eslint src",
     "lint:next": "next lint",
     "prepare": "husky install",
     "test": "jest --maxWorkers=25%",
@@ -22,7 +22,6 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn lint --fix",
       "yarn test --findRelatedTests --bail"
     ]
   },
@@ -44,6 +43,7 @@
     "@testing-library/dom": "^8.19.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.2.5",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",

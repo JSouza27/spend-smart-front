@@ -13,12 +13,14 @@ export default {
     semi_bold: 600,
     bold: 700,
     sizes: {
+      xxsmall: '1.0rem',
       xsmall: '1.2rem',
       small: '1.4rem',
       medium: '1.6rem',
       large: '1.8rem',
       xlarge: '2.0rem',
-      xxlarge: '2.8rem'
+      xxlarge: '2.4rem',
+      xxxlarge: '3.2rem'
     }
   },
   colors: {
@@ -66,4 +68,4 @@ export default {
     modal: 40,
     alwaysOnTop: 50
   }
-}
+};
