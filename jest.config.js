@@ -17,7 +17,10 @@ const customJestConfig = {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
   transformIgnorePatterns: ['/node_modules/'],
-  modulePathIgnorePatterns: ['stories\\.tsx$', 'styles\\.ts$', 'd\\.ts$']
+  modulePathIgnorePatterns: ['stories\\.tsx$', 'styles\\.ts$', 'd\\.ts$'],
+  moduleNameMapper: {
+    "uuid": require.resolve('uuid'),
+  }
 }
 
 module.exports = createJestConfig(customJestConfig)
