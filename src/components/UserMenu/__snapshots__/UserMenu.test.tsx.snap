@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserMenu /> should render the heading 1`] = `
+.c2 {
+  color: neutral_900;
+  font-size: xlarge;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c1 span {
+  color: #474D66;
+  line-height: 2.4rem;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #D8DAE5;
+  border: none;
+  border-radius: 100%;
+  color: #696F8C;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 5rem;
+  overflow: hidden;
+  width: 5rem;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <h2
+      class="c2"
+    >
+      João da Silva
+    </h2>
+    <span>
+      jjjjoao@xmail.com
+    </span>
+  </div>
+  <div
+    class="c3"
+  >
+    <h1
+      class="c2"
+    >
+      JS
+    </h1>
+  </div>
+</div>
+`;

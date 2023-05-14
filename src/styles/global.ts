@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -21,6 +21,6 @@ const GlobalStyles = createGlobalStyle`
       font-display: swap;
     }
   `}
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;
