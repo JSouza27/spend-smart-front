@@ -8,7 +8,7 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   preset: 'ts-jest/presets/js-with-ts',
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: ['/node_modules/', '/.next'],
+  testPathIgnorePatterns: ['/node_modules/', '/.next', '@types'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx', '!src/pages/**/*.tsx', '!src/styles/**/*.ts',],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
@@ -16,7 +16,8 @@ const customJestConfig = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
-  transformIgnorePatterns: ['/node_modules/']
+  transformIgnorePatterns: ['/node_modules/'],
+  modulePathIgnorePatterns: ['stories\\.tsx$', 'styles\\.ts$', 'd\\.ts$']
 }
 
 module.exports = createJestConfig(customJestConfig)

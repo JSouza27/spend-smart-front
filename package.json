@@ -22,7 +22,7 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn test --findRelatedTests --bail"
+      "yarn test --passWithNoTests"
     ]
   },
   "dependencies": {

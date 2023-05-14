@@ -1,7 +1,7 @@
-import { Story, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
 
-import Heading, { HeadingProps } from '.';
+import Heading from '.';
 import theme from '../../styles/theme';
 
 export default {
@@ -16,7 +16,7 @@ export default {
   }
 } as ComponentMeta<typeof Heading>;
 
-export const Default: Story<HeadingProps> = (args) => (
+export const Default: ComponentStory<typeof Heading> = (args) => (
   <ThemeProvider theme={theme}>
     <Heading {...args}>Minhas Transações</Heading>
   </ThemeProvider>

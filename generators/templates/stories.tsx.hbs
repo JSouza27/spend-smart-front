@@ -1,9 +1,16 @@
-import { Meta, Story } from '@storybook/react'
+import { ComponentMeta, Story } from '@storybook/react'
+import { ThemeProvider } from 'styled-components';
+
 import {{pascalCase name}} from '.'
+import theme from '../../styles/theme';
 
 export default {
   title: '{{pascalCase name}}',
   component: {{pascalCase name}}
-} as Meta
+} as ComponentMeta
 
-export const Basic: Story = () => <{{pascalCase name}} />
+export const Basic: Story = () => (
+  <ThemeProvider theme={theme}>
+    <{{pascalCase name}} />
+  </ThemeProvider>
+)
