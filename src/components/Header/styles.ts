@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
       display: none;
     }
 
-    @media screen (min-width: 767px) {
+    @media (min-width: 767px) {
       justify-content: space-between;
 
       .salutation {

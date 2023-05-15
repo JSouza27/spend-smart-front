@@ -6,7 +6,7 @@ import theme from '../../styles/theme';
 export type HeadingProps = {
   color?: keyof typeof theme.colors;
   size?: keyof typeof theme.font.sizes;
-  fontWeight?: 400 | 500 | 600;
+  fontWeight?: 400 | 600;
   lineHeight?: string | number;
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   children: React.ReactNode;

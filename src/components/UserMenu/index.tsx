@@ -8,12 +8,12 @@ export default function UserMenu() {
   return (
     <S.Wrapper>
       <S.UserContainer>
-        <Heading level={2} size="xlarge" lineHeight="2.4rem">
+        <Heading level={2} size="medium" lineHeight="2.4rem">
           {user.name}
         </Heading>
         <span>{user.email}</span>
       </S.UserContainer>
-      <S.ImageContainer>
+      <S.Avatar>
         {user.imageUrl ? (
           <Image
             src={user.imageUrl}
@@ -22,11 +22,16 @@ export default function UserMenu() {
             alt="Picture of the author"
           />
         ) : (
-          <Heading level={1} size="xlarge" lineHeight="2.4rem">
+          <Heading
+            level={1}
+            size="xlarge"
+            color="neutral_800"
+            lineHeight="2.4rem"
+          >
             {user.nick}
           </Heading>
         )}
-      </S.ImageContainer>
+      </S.Avatar>
     </S.Wrapper>
   );
 }

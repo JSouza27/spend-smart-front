@@ -7,7 +7,7 @@ import theme from 'styles/theme';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Head>
         <title>SpendSmart</title>
         <link rel="shortcut ico" href="/img/icon-512.png" />
@@ -28,8 +28,10 @@ export default function App({ Component, pageProps }: AppProps) {
           content="Um Web App de gerenciamento de finnanças."
         />
       </Head>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }

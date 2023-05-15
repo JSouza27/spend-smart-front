@@ -8,10 +8,11 @@ export const Heading = styled.h1.attrs<HeadingProps>(({ level }) => ({
     color = 'neutral_900',
     size = 'xxxlarge',
     fontWeight = 600,
-    lineHeight = '4rem'
+    lineHeight = '4rem',
+    theme
   }) => css`
-    color: ${color};
-    font-size: ${size};
+    color: ${theme.colors[color]};
+    font-size: ${theme.font.sizes[size]};
     font-weight: ${fontWeight};
     line-height: ${lineHeight};
   `}

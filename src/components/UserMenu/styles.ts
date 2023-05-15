@@ -7,18 +7,20 @@ export const Wrapper = styled.div`
 
 export const UserContainer = styled.div`
   ${({ theme }) => css`
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 
     span {
       color: ${theme.colors.neutral_800};
+      font-size: ${theme.font.sizes.small};
       line-height: 2.4rem;
     }
   `}
 `;
 
-export const ImageContainer = styled.div`
+export const Avatar = styled.div`
   ${({ theme }) => css`
     align-items: center;
     background-color: ${theme.colors.neutral_400};
