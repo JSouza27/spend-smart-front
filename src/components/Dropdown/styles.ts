@@ -21,6 +21,7 @@ export const Content = styled.div`
     padding: 0.8rem 0;
     position: absolute;
     right: 1rem;
+    z-index: ${theme.layers.alwaysOnTop};
 
     &::before {
       content: '';
@@ -31,6 +32,18 @@ export const Content = styled.div`
       top: -0.6rem;
       right: 2.4rem;
     }
+  `}
+`;
+
+export const Overlay = styled.div`
+  ${({ theme }) => css`
+    background: transparent;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: ${theme.layers.overlay};
   `}
 `;
 
@@ -54,7 +67,8 @@ export const Wrapper = styled.div<WrapperProps>`
     position: relative;
     max-width: max-content;
 
-    ${Content} {
+    ${Content},
+    ${Overlay} {
       transition: opacity ${theme.transition.fast};
 
       ${isOpen && wrapperModifiers.open()}
