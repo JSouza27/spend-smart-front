@@ -21,7 +21,6 @@ export const Content = styled.div`
     padding: 0.8rem 0;
     position: absolute;
     right: 1rem;
-    top: 1rem;
 
     &::before {
       content: '';

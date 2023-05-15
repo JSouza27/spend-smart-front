@@ -6,7 +6,7 @@ export type DropdownProps = {
   children: React.ReactNode;
 };
 export default function Dropdown({ trigger, children }: DropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <S.Wrapper isOpen={isOpen}>

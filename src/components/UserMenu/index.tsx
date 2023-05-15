@@ -1,10 +1,14 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { DocumentTextExtract } from '@styled-icons/fluentui-system-filled';
+import { User, Exit } from '@styled-icons/boxicons-regular';
 
 import Heading from '../Heading';
 import user from 'data/constants/mockUsuario';
 import * as S from './styles';
+import Dropdown from '../Dropdown';
 
-export default function UserMenu() {
+function Trigger() {
   return (
     <S.Wrapper>
       <S.UserContainer>
@@ -33,5 +37,42 @@ export default function UserMenu() {
         )}
       </S.Avatar>
     </S.Wrapper>
+  );
+}
+
+export default function UserMenu() {
+  return (
+    <Dropdown trigger={<Trigger />}>
+      <S.Nav>
+        <S.Title>
+          <Heading
+            level={1}
+            size="xsmall"
+            color="neutral_600"
+            lineHeight={'1.6rem'}
+          >
+            Usuário
+          </Heading>
+        </S.Title>
+        <Link href="*" passHref>
+          <S.Link>
+            <DocumentTextExtract size={16} />
+            <span>Extrato</span>
+          </S.Link>
+        </Link>
+        <Link href="*" passHref>
+          <S.Link>
+            <User size={16} />
+            <span>Meus Dados</span>
+          </S.Link>
+        </Link>
+        <Link href="*" passHref>
+          <S.Link>
+            <Exit size={16} />
+            <span>Sair</span>
+          </S.Link>
+        </Link>
+      </S.Nav>
+    </Dropdown>
   );
 }
