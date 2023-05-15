@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
+      color: ${theme.colors.neutral_800};
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
       font-display: swap;

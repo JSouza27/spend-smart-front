@@ -1,10 +1,10 @@
-import Header from '../../components/Header';
 import Base from '../Base';
+import * as S from './styles';
 
 export default function Extract() {
   return (
     <Base>
-      <Header />
+      <S.CardSection>oi</S.CardSection>
     </Base>
   );
 }
