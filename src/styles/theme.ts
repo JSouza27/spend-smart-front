@@ -25,6 +25,7 @@ export default {
   },
   colors: {
     blue_50: '#F3F6FF',
+    blue_200: '#D6E0FF',
     blue_400: '#3366FF',
     blue_500: '#2952CC',
     blue_600: '#1F3D99',
@@ -36,6 +37,7 @@ export default {
     yellow_500: '#996A13',
     yellow_600: '#66460D',
     red_50: '#FDF4F4',
+    red_100: '#F9DADA',
     red_400: '#D14343',
     red_500: '#A73636',
     red_600: '#7D2828',
