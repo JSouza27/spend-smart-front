@@ -1,8 +1,7 @@
-import CreateId from '../../server/core/common/CreateId';
 import { IUser } from '../../server/core/dto/user';
 
 export default {
-  id: CreateId.newId(),
+  id: '1',
   name: 'João da Silva',
   email: 'jjjjoao@xmail.com',
   imageUrl: null,

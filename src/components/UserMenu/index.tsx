@@ -54,19 +54,19 @@ export default function UserMenu() {
             Usuário
           </Heading>
         </S.Title>
-        <Link href="*" passHref>
+        <Link href="/extrato" passHref>
           <S.Link>
             <DocumentTextExtract size={16} />
             <span>Extrato</span>
           </S.Link>
         </Link>
-        <Link href="*" passHref>
+        <Link href="/profile" passHref>
           <S.Link>
             <User size={16} />
             <span>Meus Dados</span>
           </S.Link>
         </Link>
-        <Link href="*" passHref>
+        <Link href="/logout" passHref>
           <S.Link>
             <Exit size={16} />
             <span>Sair</span>

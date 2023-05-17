@@ -4,7 +4,8 @@ export class CurrencyFormatter {
 
   static formatter(num: number): string {
     return (num ?? 0).toLocaleString(this.language, {
-      currency: this.currency
+      currency: this.currency,
+      style: 'currency'
     });
   }
 

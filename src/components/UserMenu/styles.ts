@@ -71,7 +71,7 @@ export const Title = styled.div`
   `}
 `;
 
-export const Link = styled.a`
+export const Link = styled.span`
   ${({ theme }) => css`
     align-items: center;
     background-color: ${theme.colors.neutral_0};

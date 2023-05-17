@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
 
     @media (min-width: 767px) {
       justify-content: space-between;
+      padding: 2.4rem;
 
       .salutation {
         display: block;

@@ -31,7 +31,7 @@ export default function Card({ title, type, value }: CardProps) {
       </Heading>
 
       <S.Container colorByType={colorByType()} type={type}>
-        <span>{CurrencyFormatter.formatter(value)}</span>
+        <span>{CurrencyFormatter.formatter(value).replace('R$', '')}</span>
         {type === 'balance' ? (
           <Savings className="icon" size={38} title="icon" />
         ) : (
