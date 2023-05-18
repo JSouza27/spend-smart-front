@@ -13,7 +13,13 @@ export type CardProps = {
 
 export default function Card({ title, type, value }: CardProps) {
   const balanceResult = (value: number): string => {
-    return value > 0 ? theme.colors.green_400 : theme.colors.red_400;
+    if (value > 0) {
+      return theme.colors.green_400;
+    } else if (value < 0) {
+      return theme.colors.red_400;
+    } else {
+      return theme.colors.neutral_800;
+    }
   };
 
   const colorByType = (): string => {
