@@ -3,6 +3,8 @@ import React from 'react';
 import Extract from '../Templates/Extract';
 import { TableColumn } from 'react-data-table-component';
 import { CurrencyFormatter } from '../utils/currencyFormatter';
+import mockUsuario from '../data/constants/mockUsuario';
+import { TransitionsService } from '../server/modules/transitions/transitionsServive';
 
 export type DataRow = {
   description: string;
@@ -11,7 +13,7 @@ export type DataRow = {
   type: string;
 };
 
-export default function extrato() {
+export default function extrato({ transitions }) {
   const data: DataRow[] = React.useMemo(
     () => [
       {
@@ -53,8 +55,17 @@ export default function extrato() {
     totalExpenses: 0,
     balanceOfTheMonth: 0,
     columns,
-    rows: data
+    rows: transitions
   };
 
   return <Extract {...props} />;
+}
+
+export async function getServerSideProps() {
+  const service = new TransitionsService();
+  const user = mockUsuario;
+  const transitions = await service.findAll(user);
+
+  console.log(transitions);
+  return { props: { transitions } };
 }
