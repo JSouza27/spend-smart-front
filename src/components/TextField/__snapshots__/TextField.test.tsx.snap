@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> should render the TextField 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.c1 {
+  color: #696F8C;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c1::before {
+  color: #D14343;
+}
+
+.c2 {
+  background-color: #FFFFFF;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  padding: 1.2rem 0.8rem;
+  width: 100%;
+  border: 1px solid;
+  border-color: #D8DAE5;
+  color: #8F95B2;
+}
+
+.c2:focus {
+  border-color: #9DB5FF;
+  box-shadow: 0 0 0 2px #D6E0FF;
+  outline-color: #9DB5FF;
+}
+
+.c2:disabled {
+  background-color: #F4F6FA;
+  border: 1px solid #E6E8F0;
+  color: #8F95B2;
+}
+
+<div
+  class="c0"
+>
+  <label
+    class="c1"
+    for="description"
+  >
+    Descrição
+  </label>
+  <input
+    class="c2"
+    id="description"
+    name="description"
+    type="text"
+  />
+</div>
+`;

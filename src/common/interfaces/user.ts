@@ -2,10 +2,8 @@ export interface IUser {
   id: string;
   name: string;
   email: string;
-  imageUrl: string | null;
-  additional_user_id: string | null;
-  cpf?: string;
-  telefone?: string;
+  imageUrl: null;
+  additional_user_id: null;
   account: string;
   nick: string;
 }

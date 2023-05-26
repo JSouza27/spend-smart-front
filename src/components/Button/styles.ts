@@ -26,7 +26,6 @@ const wrapperModifier = {
   `,
   withIcon: () => css`
     svg {
-      color: inherit;
       width: 2rem;
     }
   `

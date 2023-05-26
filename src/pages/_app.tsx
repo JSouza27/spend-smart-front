@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 
+import Contexts from '../contexts';
 import GlobalStyles from 'styles/global';
 import theme from 'styles/theme';
 
@@ -19,10 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
+
         <meta
           name="description"
           content="Um Web App de gerenciamento de finnanças."
@@ -30,7 +28,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <Contexts>
+          <Component {...pageProps} />
+        </Contexts>
       </ThemeProvider>
     </>
   );

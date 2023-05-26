@@ -1,71 +1,197 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { format, parse } from 'date-fns';
+import { Edit } from '@styled-icons/fluentui-system-filled';
+import { Trash } from '@styled-icons/boxicons-regular';
+import { TableColumn } from 'react-data-table-component';
+import Swal from 'sweetalert2';
+import * as z from 'zod';
 
 import Extract from '../Templates/Extract';
-import { TableColumn } from 'react-data-table-component';
 import { CurrencyFormatter } from '../utils/currencyFormatter';
-import mockUsuario from '../data/constants/mockUsuario';
-import { TransitionsService } from '../server/modules/transitions/transitionsServive';
+import { useTransaction } from '../contexts/transaction';
+import TransactionIcon from '../components/TransactionIcon';
+import Button from '../components/Button';
+import { useReducerTransactionValues } from '../hooks/reducerTransactionValues';
+import { createPortal } from 'react-dom';
+import ModalNewTransaction from '../components/ModalNewTransaction';
+import { FormProvider, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import theme from '../styles/theme';
 
 export type DataRow = {
+  id: string;
   description: string;
   invoiceDueDate: string;
   value: string;
-  type: string;
+  type: 'income' | 'expense';
 };
 
-export default function extrato({ transitions }) {
-  const data: DataRow[] = React.useMemo(
-    () => [
-      {
-        description: 'Conta de Luz',
-        invoiceDueDate: '03/05/2023',
-        value: CurrencyFormatter.formatter(255.7),
-        type: 'expense',
-        sortable: true
-      },
-      {
-        description: 'Cartão Renner',
-        invoiceDueDate: '25/05/2023',
-        value: CurrencyFormatter.formatter(908.16),
-        type: 'expense',
-        sortable: true
-      },
-      {
-        description: 'Pagamento - Jonathan',
-        invoiceDueDate: '08/05/2023',
-        value: CurrencyFormatter.formatter(2713.0),
-        type: 'income',
-        sortable: true
+const transactionSchema = z.object({
+  id: z.optional(z.string()),
+  description: z.string().nonempty('A descrição é obrigatória.'),
+  value: z.string().nonempty('É necessário adicionar um valor.'),
+  invoiceDueDate: z
+    .date({
+      required_error: 'É necessário adicionar a data de vencimento.'
+    })
+    .or(
+      z.string({
+        required_error: 'É necessário adicionar a data de vencimento.'
+      })
+    ),
+  type: z.enum(['income', 'expense'], {
+    required_error: 'É necessário dizer se é uma despesa ou reita.'
+  })
+});
+
+export type stateProps = z.infer<typeof transactionSchema>;
+
+export default function extrato() {
+  const [showModal, setShowModal] = useState(false);
+
+  const { transactions, setIsEdit, deleteTransaction } = useTransaction();
+  const { balanceOfTheMonth, totalExpenses, totalIncomes } =
+    useReducerTransactionValues();
+  const methods = useForm<stateProps>({
+    resolver: zodResolver(transactionSchema)
+  });
+
+  const handleEditTransaction = (id: string) => {
+    methods.reset();
+
+    const transaction = transactions.find(
+      (transaction) => transaction.id === id
+    );
+
+    if (!transaction || transaction === undefined) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Erro ao editar a transação',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+        buttonsStyling: false,
+        customClass: {
+          title: 'swal-title',
+          htmlContainer: 'swal-html-container',
+          popup: 'swal-popup',
+          confirmButton: 'swal-confirm-button',
+          cancelButton: 'swal-cancel-button',
+          actions: 'swal-action'
+        }
+      });
+
+      return;
+    }
+
+    setIsEdit(true);
+    const dateString = transaction.invoiceDueDate;
+    const dateObject = parse(dateString, 'dd/MM/yyyy', new Date());
+    const formattedDate = format(dateObject, 'yyyy-MM-dd');
+
+    methods.setValue('id', transaction.id);
+    methods.setValue('description', transaction.description);
+    methods.setValue('invoiceDueDate', formattedDate);
+    methods.setValue('type', transaction.type);
+    methods.setValue('value', transaction.value.toString());
+
+    setShowModal(true);
+  };
+
+  const handleDeleteTransaction = async (id: string) => {
+    Swal.fire({
+      title: 'Cuidado',
+      text: 'Tem certeza que deseja remover a transação?',
+      icon: 'warning',
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Não',
+      showCancelButton: true,
+      buttonsStyling: false,
+      reverseButtons: true,
+      customClass: {
+        title: 'swal-title',
+        htmlContainer: 'swal-html-container',
+        popup: 'swal-popup',
+        confirmButton: 'swal-confirm-button',
+        cancelButton: 'swal-cancel-button',
+        actions: 'swal-action'
       }
-    ],
-    []
-  );
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteTransaction(id);
+      }
+    });
+  };
+
+  const handleModalChange = () => {
+    methods.reset();
+    setShowModal(!showModal);
+  };
 
   const columns: TableColumn<DataRow>[] = React.useMemo(
     () => [
-      { name: 'Descrição', selector: (row) => row.description },
-      { name: 'Data de Vencimento', selector: (row) => row.invoiceDueDate },
-      { name: 'Valor', selector: (row) => row.value }
+      {
+        name: '',
+        width: '8.6rem',
+        cell: (row) => <TransactionIcon type={row.type} />
+      },
+      {
+        name: 'Descrição',
+        selector: (row) => row.description
+      },
+      {
+        name: 'Data de Vencimento',
+        sortable: true,
+        cell: (row) => row.invoiceDueDate
+      },
+      { name: 'Valor', sortable: true, selector: (row) => row.value },
+      {
+        name: 'Ações',
+        cell: (row) => (
+          <>
+            <Button
+              size="small"
+              appearance="minimal"
+              icon={<Edit />}
+              onClick={() => handleEditTransaction(row.id)}
+            />
+            <Button
+              className="btn-trash"
+              size="small"
+              appearance="minimal"
+              icon={<Trash color={theme.colors.red_400} />}
+              onClick={() => handleDeleteTransaction(row.id)}
+            />
+          </>
+        )
+      }
     ],
-    []
+    [transactions]
   );
 
   const props = {
-    totalIncomes: 0,
-    totalExpenses: 0,
-    balanceOfTheMonth: 0,
+    totalIncomes,
+    totalExpenses,
+    balanceOfTheMonth,
     columns,
-    rows: transitions
+    showModal,
+    handleModalChange,
+    rows: transactions.map((transaction) => ({
+      ...transaction,
+      value: CurrencyFormatter.formatter(transaction.value)
+    }))
   };
 
-  return <Extract {...props} />;
-}
-
-export async function getServerSideProps() {
-  const service = new TransitionsService();
-  const user = mockUsuario;
-  const transitions = await service.findAll(user);
-
-  console.log(transitions);
-  return { props: { transitions } };
+  return (
+    <FormProvider {...methods}>
+      <Extract {...props} />
+      {showModal &&
+        createPortal(
+          <ModalNewTransaction
+            onClose={() => setShowModal(false)}
+            showModal={showModal}
+          />,
+          document.body
+        )}
+    </FormProvider>
+  );
 }

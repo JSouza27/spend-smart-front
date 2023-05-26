@@ -1,7 +1,7 @@
 import Heading from '../Heading';
 import UserMenu from '../UserMenu';
 import * as S from './styles';
-import user from 'data/constants/mockUsuario';
+import user from 'data/mocks/mockUsuario';
 
 export default function Header() {
   return (
