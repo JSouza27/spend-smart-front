@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -16,11 +16,12 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
+      color: ${theme.colors.neutral_800};
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
       font-display: swap;
     }
   `}
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

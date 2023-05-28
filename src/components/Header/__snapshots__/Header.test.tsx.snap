@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render the heading 1`] = `
+.c1 {
+  color: neutral_900;
+  font-size: xxxlarge;
+  font-weight: 600;
+  line-height: 4rem;
+}
+
+.c4 {
+  color: neutral_900;
+  font-size: xlarge;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c3 span {
+  color: #474D66;
+  line-height: 2.4rem;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #D8DAE5;
+  border: none;
+  border-radius: 100%;
+  color: #696F8C;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 5rem;
+  overflow: hidden;
+  width: 5rem;
+}
+
+.c0 {
+  background-color: #F4F6FA;
+  border: none;
+  border-radius: 0.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.6rem;
+  width: 100%;
+}
+
+.c0 .salutation {
+  display: none;
+}
+
+@media screen (min-width:767px) {
+  .c0 {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .c0 .salutation {
+    display: block;
+  }
+}
+
+<div
+  class="c0"
+>
+  <h1
+    class="c1 salutation"
+  >
+    Olá 
+    João
+  </h1>
+  <div
+    class="c2"
+  >
+    <div
+      class="c3"
+    >
+      <h2
+        class="c4"
+      >
+        João da Silva
+      </h2>
+      <span>
+        jjjjoao@xmail.com
+      </span>
+    </div>
+    <div
+      class="c5"
+    >
+      <h1
+        class="c4"
+      >
+        JS
+      </h1>
+    </div>
+  </div>
+</div>
+`;

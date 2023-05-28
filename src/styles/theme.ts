@@ -13,16 +13,19 @@ export default {
     semi_bold: 600,
     bold: 700,
     sizes: {
+      xxsmall: '1.0rem',
       xsmall: '1.2rem',
       small: '1.4rem',
       medium: '1.6rem',
       large: '1.8rem',
       xlarge: '2.0rem',
-      xxlarge: '2.8rem'
+      xxlarge: '2.4rem',
+      xxxlarge: '3.2rem'
     }
   },
   colors: {
     blue_50: '#F3F6FF',
+    blue_200: '#D6E0FF',
     blue_400: '#3366FF',
     blue_500: '#2952CC',
     blue_600: '#1F3D99',
@@ -34,6 +37,7 @@ export default {
     yellow_500: '#996A13',
     yellow_600: '#66460D',
     red_50: '#FDF4F4',
+    red_100: '#F9DADA',
     red_400: '#D14343',
     red_500: '#A73636',
     red_600: '#7D2828',
@@ -65,5 +69,9 @@ export default {
     overlay: 30,
     modal: 40,
     alwaysOnTop: 50
+  },
+  transition: {
+    default: '0.3s ease-in-out',
+    fast: '0.1s ease-in-out'
   }
-}
+};
