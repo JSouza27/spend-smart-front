@@ -1,21 +1,23 @@
-import { RenderOptions, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import theme from '../styles/theme';
+import { FormProvider, useForm } from 'react-hook-form';
 
 const AllTheProviders = ({ children }: any) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  const methods = useForm();
+
+  return (
+    <ThemeProvider theme={theme}>
+      <FormProvider {...methods}>{children}</FormProvider>
+    </ThemeProvider>
+  );
 };
 
 const customRender = (
   ui: React.ReactElement<any, string | React.JSXElementConstructor<any>>,
-  options?: RenderOptions<
-    typeof import('@testing-library/dom/types/queries'),
-    HTMLElement,
-    HTMLElement
-  >
+  options?: any
 ) => render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from '@testing-library/react';

@@ -1,7 +1,7 @@
 import { render, screen } from 'utils/test-utils';
 
 import Header from '.';
-import user from 'data/constants/mockUsuario';
+import user from 'data/mocks/mockUsuario';
 
 describe('<Header />', () => {
   it('should render the heading', () => {

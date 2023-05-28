@@ -4,7 +4,7 @@ import { DocumentTextExtract } from '@styled-icons/fluentui-system-filled';
 import { User, Exit } from '@styled-icons/boxicons-regular';
 
 import Heading from '../Heading';
-import user from 'data/constants/mockUsuario';
+import user from 'data/mocks/mockUsuario';
 import * as S from './styles';
 import Dropdown from '../Dropdown';
 

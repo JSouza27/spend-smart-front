@@ -2,8 +2,8 @@
 
 exports[`<Heading /> should render the heading 1`] = `
 .c0 {
-  color: neutral_900;
-  font-size: xxxlarge;
+  color: #101840;
+  font-size: 3.2rem;
   font-weight: 600;
   line-height: 4rem;
 }

@@ -32,7 +32,7 @@ export const Container = styled.div<ContainerProps>`
 
     .icon {
       color: ${colorByType};
-      transform: ${type === 'income' && 'scale(-1) rotate(270deg)'};
+      transform: ${type === 'expense' && 'scale(-1) rotate(270deg)'};
     }
 
     span::before {

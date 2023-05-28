@@ -23,8 +23,8 @@ export default function Card({ title, type, value }: CardProps) {
   };
 
   const colorByType = (): string => {
-    if (type === 'expense') return theme.colors.green_400;
-    if (type === 'income') return theme.colors.red_400;
+    if (type === 'income') return theme.colors.green_400;
+    if (type === 'expense') return theme.colors.red_400;
     if (type === 'balance') return balanceResult(value);
 
     return theme.colors.neutral_800;
