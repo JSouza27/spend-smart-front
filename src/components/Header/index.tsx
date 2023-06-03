@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { IUser } from '../../common/interfaces/user';
 import Heading from '../Heading';
 import UserMenu from '../UserMenu';
@@ -9,10 +8,8 @@ export type HeaderProps = {
 };
 
 export default function Header({ user }: HeaderProps) {
-  const router = useRouter();
-
   return (
-    <S.Wrapper isAuthenticated={!!user && router.asPath !== '/'}>
+    <S.Wrapper>
       <Heading className="salutation" level={1} size="xxlarge">
         Olá {!!user && user.name.split(' ')[0]}
       </Heading>

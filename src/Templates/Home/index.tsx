@@ -12,7 +12,7 @@ export default function Home() {
 
   //TODO: Falta adicionar o onSubmit e o errors
   return (
-    <Base>
+    <>
       <S.Wrapper>
         <S.Container>
           <Heading level={1} size="medium">
@@ -42,6 +42,6 @@ export default function Home() {
           </span> */}
         </S.Container>
       </S.Wrapper>
-    </Base>
+    </>
   );
 }
