@@ -19,7 +19,6 @@ import ModalNewTransaction from '../components/ModalNewTransaction';
 import theme from '../styles/theme';
 import { GetServerSideProps } from 'next';
 import { parseCookies } from 'nookies';
-import Loading from '../components/Loading';
 
 export type DataRow = {
   id: string;
