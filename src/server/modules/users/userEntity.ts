@@ -1,4 +1,4 @@
-export interface IUser {
+export default interface IUserEntity {
   id: string;
   name: string;
   email: string;

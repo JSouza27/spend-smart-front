@@ -17,17 +17,17 @@ export const Content = styled.div`
     border-radius: ${theme.border.radius};
     display: flex;
     flex-direction: column;
-    margin-top: ${theme.spacings.small};
+    margin-top: ${theme.spacings.xxsmall};
     padding: 0.8rem 0;
     position: absolute;
-    right: 1rem;
+    right: 2rem;
     z-index: ${theme.layers.alwaysOnTop};
 
     &::before {
       content: '';
-      border-bottom: 0.6rem solid ${theme.colors.neutral_0};
-      border-left: 0.6rem solid transparent;
-      border-right: 0.6rem solid transparent;
+      border-bottom: 0.8rem solid ${theme.colors.neutral_0};
+      border-left: 0.8rem solid transparent;
+      border-right: 0.8rem solid transparent;
       position: absolute;
       top: -0.6rem;
       right: 2.4rem;

@@ -1,4 +1,4 @@
-import { ICollection } from '../../../shared/interfaces/Collections';
+import { ICollection } from '../../../shared/interface/Collections';
 
 export class CollectionInMemory implements ICollection {
   transaction = [

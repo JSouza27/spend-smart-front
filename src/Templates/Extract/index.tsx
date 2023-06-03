@@ -11,7 +11,7 @@ import Base from '../Base';
 import Table from '../../components/Table';
 import * as S from './styles';
 
-export type ExtractProps = {
+export type ExtractTemplateProps = {
   totalIncomes: number;
   totalExpenses: number;
   balanceOfTheMonth: number;
@@ -27,7 +27,7 @@ export default function Extract({
   columns,
   rows,
   handleModalChange
-}: ExtractProps) {
+}: ExtractTemplateProps) {
   const [dateInformation, setDateInformation] = useState({ month: 0, year: 0 });
   const { setDate, date } = useTransaction();
 
