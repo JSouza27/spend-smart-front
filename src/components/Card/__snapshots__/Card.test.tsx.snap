@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> should render the Card 1`] = `
+.c3 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c1 {
+  color: #101840;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 4rem;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  border: 1px solid #D8DAE5;
+  border-radius: 0.8rem;
+  box-shadow: 0px 4px 8px rgba(16,24,64,0.08);
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.6rem;
+  max-width: 60rem;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #D14343;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: clamp(2rem,0.87vw + 1.76rem,2.8rem);
+  font-weight: 700;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 .icon {
+  color: #D14343;
+  -webkit-transform: scale(-1) rotate(270deg);
+  -ms-transform: scale(-1) rotate(270deg);
+  transform: scale(-1) rotate(270deg);
+}
+
+.c2 span::before {
+  content: 'R$';
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    padding: 2.4rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <h3
+    class="c1"
+  >
+    Total de Receitas
+  </h3>
+  <div
+    class="c2"
+    type="expense"
+  >
+    <span>
+       17.354,61
+    </span>
+    <svg
+      class="c3 icon"
+      fill="currentColor"
+      focusable="false"
+      height="38"
+      role="img"
+      viewBox="0 0 24 24"
+      width="38"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>
+        icon
+      </title>
+      <path
+        d="M14 5.5h7a1 1 0 0 1 1 .88v7.12a1 1 0 0 1-2 .12V8.9l-7.3 7.3a1 1 0 0 1-1.31.08l-.1-.08L9 13.9l-5.28 5.3a1 1 0 0 1-1.5-1.32l.08-.1 6-6a1 1 0 0 1 1.32-.08l.1.08L12 14.1l6.58-6.59H14a1 1 0 0 1-.99-.88V6.5a1 1 0 0 1 .88-1H21h-7Z"
+      />
+    </svg>
+  </div>
+</div>
+`;

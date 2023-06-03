@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InvalidFeedBack /> should render the message 1`] = `
+.c0 {
+  color: #D14343;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+<span
+  class="c0"
+>
+  Essa é um teste de error
+</span>
+`;

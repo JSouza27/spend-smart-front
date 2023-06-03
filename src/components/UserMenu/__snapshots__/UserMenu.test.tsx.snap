@@ -1,0 +1,364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserMenu /> should render the heading 1`] = `
+.c13 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c4 {
+  color: #101840;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+.c6 {
+  color: #474D66;
+  font-size: 2.0rem;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+.c11 {
+  color: #8F95B2;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6rem;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.c3 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c3 span {
+  color: #474D66;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #D8DAE5;
+  border: none;
+  border-radius: 100%;
+  color: #696F8C;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 5rem;
+  overflow: hidden;
+  width: 5rem;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 20.8rem;
+}
+
+.c9 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c9 > a:last-child {
+  border-top: 1px solid #E6E8F0;
+}
+
+.c9 > a:last-child svg {
+  color: #D14343;
+}
+
+.c9 > a:last-child span {
+  color: #D14343;
+}
+
+.c9 > a:last-child > :hover {
+  background-color: #FDF4F4;
+  border-color: #D14343;
+}
+
+.c10 {
+  height: 4rem;
+  padding: 1.6rem 2.4rem;
+}
+
+.c12 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-left: 2px solid transparent;
+  color: #474D66;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 4rem;
+  gap: 1.6rem;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 1.2rem 2.4rem;
+}
+
+.c12 > svg {
+  color: #8F95B2;
+}
+
+.c12:hover {
+  background-color: #F3F6FF;
+  border-left: 2px solid #3366FF;
+  color: #3366FF;
+}
+
+.c12:hover > svg {
+  color: #3366FF;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+}
+
+.c8 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  background-color: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 4px 8px rgba(16,24,64,0.16));
+  filter: drop-shadow(0px 4px 8px rgba(16,24,64,0.16));
+  border-radius: 0.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 0.8rem;
+  padding: 0.8rem 0;
+  position: absolute;
+  right: 2rem;
+  z-index: 50;
+}
+
+.c8::before {
+  content: '';
+  border-bottom: 0.8rem solid #FFFFFF;
+  border-left: 0.8rem solid transparent;
+  border-right: 0.8rem solid transparent;
+  position: absolute;
+  top: -0.6rem;
+  right: 2.4rem;
+}
+
+.c15 {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+}
+
+.c0 {
+  position: relative;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.c0 .c7,
+.c0 .c14 {
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <h2
+          class="c4"
+        >
+          joao gomes
+        </h2>
+        <span>
+          jjjjoao@xmail.com
+        </span>
+      </div>
+      <div
+        class="c5"
+      >
+        <h1
+          class="c6"
+          color="neutral_800"
+        >
+          J
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="c7 c8"
+  >
+    <nav
+      class="c9"
+    >
+      <div
+        class="c10"
+      >
+        <h1
+          class="c11"
+          color="neutral_600"
+        >
+          Usuário
+        </h1>
+      </div>
+      <a
+        href="/extrato"
+      >
+        <span
+          class="c12"
+        >
+          <svg
+            aria-hidden="true"
+            class="c13"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 8V2H6a2 2 0 0 0-2 2v9.5h6.5a2 2 0 1 1 0 4H4V20c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V10h-6a2 2 0 0 1-2-2Zm-4.5 3.75c0-.41.34-.75.75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75Zm0 7.5c0-.41.34-.75.75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75ZM13.5 8V2.5l6 6H14a.5.5 0 0 1-.5-.5ZM2.75 14.75a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5Z"
+            />
+          </svg>
+          <span>
+            Extrato
+          </span>
+        </span>
+      </a>
+      <a
+        href="/profile"
+      >
+        <span
+          class="c12"
+        >
+          <svg
+            aria-hidden="true"
+            class="c13"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"
+            />
+          </svg>
+          <span>
+            Meus Dados
+          </span>
+        </span>
+      </a>
+      <a
+        href="/"
+      >
+        <span
+          class="c12"
+        >
+          <svg
+            aria-hidden="true"
+            class="c13"
+            fill="currentColor"
+            focusable="false"
+            height="16"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.002 3h-14c-1.103 0-2 .897-2 2v4h2V5h14v14h-14v-4h-2v4c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.898-2-2-2z"
+            />
+            <path
+              d="m11 16 5-4-5-4v3.001H3v2h8z"
+            />
+          </svg>
+          <span>
+            Sair
+          </span>
+        </span>
+      </a>
+    </nav>
+  </div>
+  <div
+    aria-hidden="true"
+    class="c14 c15"
+  />
+</div>
+`;

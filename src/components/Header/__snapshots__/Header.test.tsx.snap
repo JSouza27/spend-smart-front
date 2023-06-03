@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render the heading 1`] = `
+.c1 {
+  color: #101840;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 4rem;
+}
+
+.c0 {
+  background-color: #F4F6FA;
+  border: none;
+  border-radius: 0.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.6rem;
+  width: 100%;
+}
+
+.c0 .salutation {
+  display: none;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 2.4rem;
+  }
+
+  .c0 .salutation {
+    display: block;
+  }
+}
+
+<header
+  class="c0"
+>
+  <h1
+    class="c1 salutation"
+  >
+    Olá 
+    joao
+  </h1>
+</header>
+`;
