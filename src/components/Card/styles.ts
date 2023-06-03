@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     box-shadow: 0px 4px 8px rgba(16, 24, 64, 0.08);
     flex: 1 1 auto;
     padding: ${theme.spacings.xsmall};
-    max-width: 40rem;
+    max-width: 60rem;
 
     @media (min-width: 767px) {
       padding: ${theme.spacings.small};

@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
 import { ITransaction, ITransactionModal } from './transaction';
-import { ICollection } from '../../shared/interfaces/Collections';
+import { ICollection } from '../../shared/interface/Collections';
 
 export class TransactionService {
   private collection: ICollection;
@@ -27,10 +27,11 @@ export class TransactionService {
 
   async create(
     transaction: ITransactionModal,
-    accountPath: string
+    account: string
   ): Promise<ITransaction> {
     try {
-      const docId = await this.collection.save(accountPath, transaction);
+      const path = `extracts/${account}/transactions`;
+      const docId = await this.collection.save(path, transaction);
 
       const response = {
         id: docId,
@@ -62,9 +63,10 @@ export class TransactionService {
     }
   }
 
-  async findForMonth(accountPath: string, date: Date): Promise<ITransaction[]> {
+  async findForMonth(account: string, date: Date): Promise<ITransaction[]> {
     try {
-      const docs = await this.collection.findWithFilters(accountPath, [
+      const path = `extracts/${account}/transactions`;
+      const docs = await this.collection.findWithFilters(path, [
         {
           attribute: 'invoiceDueDate',
           op: '>=',
@@ -83,13 +85,15 @@ export class TransactionService {
 
       return transactions;
     } catch (e: any) {
+      console.error(e);
       throw new Error('Ocorreu um erro na tentativa de buscar as transações.');
     }
   }
 
-  async update(accountPath: string, data: ITransaction) {
+  async update(account: string, data: ITransaction) {
     try {
-      await this.collection.update(accountPath, data);
+      const path = `extracts/${account}/transactions`;
+      await this.collection.update(path, data);
 
       return {
         message: 'Documento atualizado com sucesso',
@@ -102,9 +106,10 @@ export class TransactionService {
     }
   }
 
-  async delete(accountPath: string, id: string) {
+  async delete(account: string, id: string) {
     try {
-      await this.collection.delete(accountPath, id);
+      const path = `extracts/${account}/transactions`;
+      await this.collection.delete(path, id);
 
       return {
         message: 'Documento removido com sucesso',

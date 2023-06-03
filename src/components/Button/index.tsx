@@ -3,6 +3,7 @@ import * as S from './styles';
 
 export type ButtonProps = {
   children?: React.ReactNode;
+  fullWidth?: boolean;
   size?: 'small' | 'medium' | 'large';
   icon?: React.ReactNode;
   appearance?: 'primary' | 'secondary' | 'minimal' | 'error';
@@ -13,10 +14,17 @@ export default function Button({
   size = 'medium',
   icon,
   appearance = 'primary',
+  fullWidth,
   ...props
 }: ButtonProps) {
   return (
-    <S.Wrapper size={size} hasIcon={!!icon} {...props} appearance={appearance}>
+    <S.Wrapper
+      fullWidth={fullWidth}
+      size={size}
+      hasIcon={!!icon}
+      {...props}
+      appearance={appearance}
+    >
       {!!icon && icon}
       {!!children && <span>{children}</span>}
     </S.Wrapper>

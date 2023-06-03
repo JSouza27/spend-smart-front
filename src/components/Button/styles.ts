@@ -3,9 +3,9 @@ import { ButtonProps } from '.';
 
 type WrapperProps = {
   hasIcon: boolean;
-} & Pick<ButtonProps, 'size' | 'appearance'>;
+} & Pick<ButtonProps, 'size' | 'appearance' | 'fullWidth'>;
 
-const wrapperModifier = {
+const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.xsmall};
     height: 2.4rem;
@@ -23,6 +23,10 @@ const wrapperModifier = {
     height: 4rem;
     padding: 1.2rem ${theme.spacings.small};
     line-height: ${theme.spacings.large};
+  `,
+  fullWidth: () => css`
+    padding: 1.2rem 2.4rem;
+    width: 100%;
   `,
   withIcon: () => css`
     svg {
@@ -130,18 +134,20 @@ const wrapperModifierColor = {
 };
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, hasIcon, appearance }) => css`
+  ${({ theme, size, hasIcon, appearance, fullWidth }) => css`
     align-items: center;
     border: 0;
     border-radius: ${theme.border.radius};
     cursor: pointer;
     display: flex;
     font-weight: ${theme.font.semi_bold};
+    justify-content: center;
     gap: ${theme.spacings.xxsmall};
     white-space: nowrap;
 
-    ${!!size && wrapperModifier[size](theme)};
-    ${!!hasIcon && wrapperModifier.withIcon};
+    ${!!size && wrapperModifiers[size](theme)};
+    ${!!fullWidth && wrapperModifiers.fullWidth()};
+    ${!!hasIcon && wrapperModifiers.withIcon};
     ${!!appearance && wrapperModifierColor[appearance](theme)}
   `}
 `;

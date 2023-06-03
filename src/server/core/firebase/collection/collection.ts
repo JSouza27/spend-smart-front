@@ -12,8 +12,8 @@ import {
 } from 'firebase/firestore';
 
 import { app } from '../config/app';
-import { IFilter } from '../../../shared/interfaces/Filters';
-import { ICollection } from '../../../shared/interfaces/Collections';
+import { IFilter } from '../../../shared/interface/Filters';
+import { ICollection } from '../../../shared/interface/Collections';
 
 export class Collection implements ICollection {
   async save(url: string, data: any): Promise<string> {

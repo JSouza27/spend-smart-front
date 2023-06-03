@@ -8,10 +8,10 @@ import React, {
 
 import { ITransaction } from '../server/modules/transitions/transaction';
 import { TransactionService } from '../server/modules/transitions/transactionServive';
-import mockUsuario from '../data/mocks/mockUsuario';
 import { CustomExceptionHandler } from '../common/exception/customExceptionHandler';
 import { Collection } from '../server/core/firebase/collection/collection';
 import { ITransactionModel } from '../common/interfaces/transaction';
+import { useAuthentication } from './auth';
 
 type TransactionContextData = {
   saveTransaction: (transaction: ITransactionModel) => void;
@@ -37,15 +37,17 @@ export function TransactionProvider({ children }: ProviderProps) {
   const [transactions, setTransactions] = useState<ITransaction[] | []>([]);
   const [date, setDate] = useState(new Date());
   const [isEdit, setIsEdit] = useState(false);
+  const { user, isAuthenticated } = useAuthentication();
 
-  const user = mockUsuario;
   const collection = new Collection();
   const service = new TransactionService(collection);
-  const accountPath = `extract/${user.account}/transactions`;
 
   const getTransactionsPerMonth = useCallback(async () => {
     try {
-      const localTransactions = await service.findForMonth(accountPath, date);
+      const localTransactions = await service.findForMonth(
+        user?.account_id!,
+        date
+      );
       setTransactions(localTransactions);
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(
@@ -55,15 +57,15 @@ export function TransactionProvider({ children }: ProviderProps) {
 
       customExceptionHandler.execute();
     }
-  }, [date]);
+  }, [date, isAuthenticated, user]);
 
   useEffect(() => {
-    getTransactionsPerMonth();
-  }, [getTransactionsPerMonth, date]);
+    if (isAuthenticated && user) getTransactionsPerMonth();
+  }, [getTransactionsPerMonth, date, isAuthenticated, user]);
 
   const saveTransaction = async (transaction: ITransactionModel) => {
     try {
-      await service.create(transaction, accountPath);
+      await service.create(transaction, user?.account_id!);
       await getTransactionsPerMonth();
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(
@@ -77,7 +79,7 @@ export function TransactionProvider({ children }: ProviderProps) {
 
   const updateTransaction = async (transaction: ITransaction) => {
     try {
-      await service.update(accountPath, transaction);
+      await service.update(user?.account_id!, transaction);
       getTransactionsPerMonth();
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(
@@ -91,7 +93,7 @@ export function TransactionProvider({ children }: ProviderProps) {
 
   const deleteTransaction = async (id: string) => {
     try {
-      await service.delete(accountPath, id);
+      await service.delete(user?.account_id!, id);
       getTransactionsPerMonth();
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(

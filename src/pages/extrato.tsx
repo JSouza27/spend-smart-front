@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { format, parse } from 'date-fns';
 import { Edit } from '@styled-icons/fluentui-system-filled';
 import { Trash } from '@styled-icons/boxicons-regular';
 import { TableColumn } from 'react-data-table-component';
 import Swal from 'sweetalert2';
+import { FormProvider, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { createPortal } from 'react-dom';
 import * as z from 'zod';
 
-import Extract from '../Templates/Extract';
+import ExtractTemplate from '../Templates/Extract';
 import { CurrencyFormatter } from '../utils/currencyFormatter';
 import { useTransaction } from '../contexts/transaction';
 import TransactionIcon from '../components/TransactionIcon';
 import Button from '../components/Button';
 import { useReducerTransactionValues } from '../hooks/reducerTransactionValues';
-import { createPortal } from 'react-dom';
 import ModalNewTransaction from '../components/ModalNewTransaction';
-import { FormProvider, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import theme from '../styles/theme';
+import { GetServerSideProps } from 'next';
+import { parseCookies } from 'nookies';
+import Loading from '../components/Loading';
 
 export type DataRow = {
   id: string;
@@ -46,7 +49,7 @@ const transactionSchema = z.object({
 
 export type stateProps = z.infer<typeof transactionSchema>;
 
-export default function extrato() {
+export default function Extrato() {
   const [showModal, setShowModal] = useState(false);
 
   const { transactions, setIsEdit, deleteTransaction } = useTransaction();
@@ -183,7 +186,7 @@ export default function extrato() {
 
   return (
     <FormProvider {...methods}>
-      <Extract {...props} />
+      <ExtractTemplate {...props} />
       {showModal &&
         createPortal(
           <ModalNewTransaction
@@ -195,3 +198,21 @@ export default function extrato() {
     </FormProvider>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { ['nextauth.token']: token } = parseCookies(ctx);
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    };
+  }
+
+  return {
+    props: {}
+  };
+};
+//http://localhost:3000/link-user?accountId=5000&email=souzaramos2617@gmail.com&token=8373a7cdf5c540f987fae3d878ddebfce1bc504f72db86174268ff5d2aa6fe60
