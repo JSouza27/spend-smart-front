@@ -69,18 +69,27 @@ export function AuthProvider({ children }: ProviderProps) {
   };
 
   const additionalUser = async (email: string) => {
-    const token = generateToken();
-    const inviteLink = generateInviteLink(user?.account_id!, token, email);
+    if (user === null) {
+      const customExceptionHandler = new CustomExceptionHandler(
+        'Usuário inexistente!',
+        'Erro ao atualizar um documento'
+      );
 
-    user!.additional_user_email = email;
-    await updateUser(user!, user!.email);
+      customExceptionHandler.execute();
+      return;
+    }
+
+    const token = generateToken();
+    const inviteLink = generateInviteLink(user.account_id, token, email);
+
+    user.additional_user_email = email;
+    await updateUser(user, user.email);
     await service.createUserLink(email, { token });
 
     return inviteLink;
   };
 
   const linkUser = async () => {
-    console.log(router);
     const query = router.query;
 
     if (!Object.keys(query).length) {
