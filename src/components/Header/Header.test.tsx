@@ -5,11 +5,9 @@ import user from 'data/mocks/mockUsuario';
 
 describe('<Header />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Header />);
+    const { container } = render(<Header user={user} />);
 
-    expect(
-      screen.getByRole('heading', { name: user.name })
-    ).toBeInTheDocument();
+    expect(screen.getByText(/olá joao/i)).toBeInTheDocument();
     expect(container.firstChild).toMatchSnapshot();
   });
 });

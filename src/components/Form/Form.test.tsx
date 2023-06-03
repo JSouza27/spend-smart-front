@@ -17,7 +17,7 @@ describe('<Form />', () => {
         <ElementForm />
       </Form>
     );
-    screen.logTestingPlaygroundURL();
+
     const label = screen.getByText(/label/i);
     const input = screen.getByRole('textbox');
 

@@ -44,8 +44,18 @@ export function TransactionProvider({ children }: ProviderProps) {
 
   const getTransactionsPerMonth = useCallback(async () => {
     try {
+      if (user === null) {
+        const customExceptionHandler = new CustomExceptionHandler(
+          'Usuário inexistente!',
+          'Erro ao buscar documentos'
+        );
+
+        customExceptionHandler.execute();
+        return;
+      }
+
       const localTransactions = await service.findForMonth(
-        user?.account_id!,
+        user.account_id,
         date
       );
       setTransactions(localTransactions);
@@ -65,7 +75,17 @@ export function TransactionProvider({ children }: ProviderProps) {
 
   const saveTransaction = async (transaction: ITransactionModel) => {
     try {
-      await service.create(transaction, user?.account_id!);
+      if (user === null) {
+        const customExceptionHandler = new CustomExceptionHandler(
+          'Usuário inexistente!',
+          'Erro ao salvar um documento'
+        );
+
+        customExceptionHandler.execute();
+        return;
+      }
+
+      await service.create(transaction, user.account_id);
       await getTransactionsPerMonth();
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(
@@ -79,7 +99,17 @@ export function TransactionProvider({ children }: ProviderProps) {
 
   const updateTransaction = async (transaction: ITransaction) => {
     try {
-      await service.update(user?.account_id!, transaction);
+      if (user === null) {
+        const customExceptionHandler = new CustomExceptionHandler(
+          'Usuário inexistente!',
+          'Erro ao atualizar um documento'
+        );
+
+        customExceptionHandler.execute();
+        return;
+      }
+
+      await service.update(user.account_id, transaction);
       getTransactionsPerMonth();
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(
@@ -93,7 +123,17 @@ export function TransactionProvider({ children }: ProviderProps) {
 
   const deleteTransaction = async (id: string) => {
     try {
-      await service.delete(user?.account_id!, id);
+      if (user === null) {
+        const customExceptionHandler = new CustomExceptionHandler(
+          'Usuário inexistente!',
+          'Erro ao deletar um documento'
+        );
+
+        customExceptionHandler.execute();
+        return;
+      }
+
+      await service.delete(user.account_id, id);
       getTransactionsPerMonth();
     } catch (e: any) {
       const customExceptionHandler = new CustomExceptionHandler(

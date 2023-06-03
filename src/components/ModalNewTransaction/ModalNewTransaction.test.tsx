@@ -2,21 +2,16 @@ import { fireEvent, render, screen } from 'utils/test-utils';
 import userEvent from '@testing-library/user-event';
 
 import ModalNewTransaction from '.';
-import {
-  TransactionContext,
-  TransactionProvider
-} from '../../contexts/transaction';
+import { TransactionContext } from '../../contexts/transaction';
 
 describe('<ModalNewTransaction />', () => {
   const user = userEvent.setup();
 
-  let showModal = true;
-  let onClose = jest.fn();
+  const showModal = true;
+  const onClose = jest.fn();
 
   it('should render the form in the modal', () => {
-    const { container } = render(
-      <ModalNewTransaction showModal={showModal} onClose={onClose} />
-    );
+    render(<ModalNewTransaction showModal={showModal} onClose={onClose} />);
 
     const heading = screen.getByRole('heading', {
       name: /adicionar nova transação/i

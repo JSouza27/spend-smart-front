@@ -23,7 +23,7 @@ exports[`<Card /> should render the Card 1`] = `
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.6rem;
-  max-width: 40rem;
+  max-width: 60rem;
 }
 
 .c2 {
@@ -31,7 +31,7 @@ exports[`<Card /> should render the Card 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #52BD94;
+  color: #D14343;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -45,7 +45,10 @@ exports[`<Card /> should render the Card 1`] = `
 }
 
 .c2 .icon {
-  color: #52BD94;
+  color: #D14343;
+  -webkit-transform: scale(-1) rotate(270deg);
+  -ms-transform: scale(-1) rotate(270deg);
+  transform: scale(-1) rotate(270deg);
 }
 
 .c2 span::before {
@@ -73,7 +76,7 @@ exports[`<Card /> should render the Card 1`] = `
     type="expense"
   >
     <span>
-      17.354,61
+       17.354,61
     </span>
     <svg
       class="c3 icon"

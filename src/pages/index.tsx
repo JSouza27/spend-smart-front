@@ -10,7 +10,6 @@ const loginSchema = z.object({
 });
 
 export type LoginProps = z.infer<typeof loginSchema>;
-
 export default function Home() {
   const methods = useForm<LoginProps>({
     resolver: zodResolver(loginSchema)
