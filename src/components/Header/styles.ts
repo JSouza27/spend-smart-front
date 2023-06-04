@@ -24,3 +24,9 @@ export const Wrapper = styled.header`
     }
   `}
 `;
+
+export const Limit = styled.div`
+  ${({ theme }) => css`
+    max-width: ${theme.grid.container};
+  `}
+`;
