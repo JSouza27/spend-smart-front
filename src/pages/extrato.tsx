@@ -214,4 +214,3 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: {}
   };
 };
-//http://localhost:3000/link-user?accountId=5000&email=souzaramos2617@gmail.com&token=8373a7cdf5c540f987fae3d878ddebfce1bc504f72db86174268ff5d2aa6fe60
