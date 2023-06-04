@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> should render the heading 1`] = `
-.c1 {
+.c2 {
   color: #101840;
   font-size: 2.4rem;
   font-weight: 600;
@@ -28,6 +28,10 @@ exports[`<Header /> should render the heading 1`] = `
   display: none;
 }
 
+.c1 {
+  max-width: 128rem;
+}
+
 @media (min-width:767px) {
   .c0 {
     -webkit-box-pack: justify;
@@ -45,11 +49,15 @@ exports[`<Header /> should render the heading 1`] = `
 <header
   class="c0"
 >
-  <h1
-    class="c1 salutation"
+  <div
+    class="c1"
   >
-    Olá 
-    joao
-  </h1>
+    <h1
+      class="c2 salutation"
+    >
+      Olá 
+      joao
+    </h1>
+  </div>
 </header>
 `;
