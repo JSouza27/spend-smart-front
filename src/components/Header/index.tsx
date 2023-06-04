@@ -10,11 +10,13 @@ export type HeaderProps = {
 export default function Header({ user }: HeaderProps) {
   return (
     <S.Wrapper>
-      <Heading className="salutation" level={1} size="xxlarge">
-        Olá {!!user && user.name.split(' ')[0]}
-      </Heading>
+      <S.Limit>
+        <Heading className="salutation" level={1} size="xxlarge">
+          Olá {!!user && user.name.split(' ')[0]}
+        </Heading>
 
-      <UserMenu />
+        <UserMenu />
+      </S.Limit>
     </S.Wrapper>
   );
 }
