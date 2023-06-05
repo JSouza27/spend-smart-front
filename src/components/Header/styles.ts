@@ -6,8 +6,21 @@ export const Wrapper = styled.header`
     border: none;
     border-radius: ${theme.border.radius};
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 1.6rem;
+    width: 100%;
+
+    @media (min-width: 767px) {
+      padding: 2.4rem;
+    }
+  `}
+`;
+
+export const Limit = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: flex-end;
+    max-width: ${theme.grid.container};
     width: 100%;
 
     .salutation {
@@ -16,17 +29,10 @@ export const Wrapper = styled.header`
 
     @media (min-width: 767px) {
       justify-content: space-between;
-      padding: 2.4rem;
 
       .salutation {
         display: block;
       }
     }
-  `}
-`;
-
-export const Limit = styled.div`
-  ${({ theme }) => css`
-    max-width: ${theme.grid.container};
   `}
 `;

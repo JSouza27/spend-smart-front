@@ -17,8 +17,6 @@ import Button from '../components/Button';
 import { useReducerTransactionValues } from '../hooks/reducerTransactionValues';
 import ModalNewTransaction from '../components/ModalNewTransaction';
 import theme from '../styles/theme';
-import { GetServerSideProps } from 'next';
-import { parseCookies } from 'nookies';
 
 export type DataRow = {
   id: string;
@@ -26,6 +24,7 @@ export type DataRow = {
   invoiceDueDate: string;
   value: string;
   type: 'income' | 'expense';
+  isPaidOff: boolean;
 };
 
 const transactionSchema = z.object({
@@ -51,7 +50,8 @@ export type stateProps = z.infer<typeof transactionSchema>;
 export default function Extrato() {
   const [showModal, setShowModal] = useState(false);
 
-  const { transactions, setIsEdit, deleteTransaction } = useTransaction();
+  const { transactions, setIsEdit, deleteTransaction, updateTransaction } =
+    useTransaction();
   const { balanceOfTheMonth, totalExpenses, totalIncomes } =
     useReducerTransactionValues();
   const methods = useForm<stateProps>({
@@ -146,6 +146,25 @@ export default function Extrato() {
         cell: (row) => row.invoiceDueDate
       },
       { name: 'Valor', sortable: true, selector: (row) => row.value },
+      // {
+      //   name: 'Pago',
+      //   cell: (row) => (
+      //     <>
+      //       <input
+      //         id={row.id}
+      //         type="checkbox"
+      //         onChange={(e) =>
+      //           updateTransaction({
+      //             ...row,
+      //             value: CurrencyFormatter.unformat(row.value),
+      //             isPaidOff: e.target.checked
+      //           })
+      //         }
+      //       />
+      //       <label htmlFor={row.id}>{row.isPaidOff ? 'Sim' : 'Não'}</label>
+      //     </>
+      //   )
+      // },
       {
         name: 'Ações',
         cell: (row) => (
@@ -169,6 +188,30 @@ export default function Extrato() {
     ],
     [transactions]
   );
+
+  // const conditionalRowStyles = [
+  //   {
+  //     when: (row: any) =>
+  //       row.invoiceDueDate >= 300 && row.calories < new Date(),
+  //     style: {
+  //       backgroundColor: 'rgba(248, 148, 6, 0.9)',
+  //       color: 'white',
+  //       '&:hover': {
+  //         cursor: 'pointer'
+  //       }
+  //     }
+  //   },
+  //   {
+  //     when: (row: any) => row.invoiceDueDate >= new Date(),
+  //     style: {
+  //       backgroundColor: 'rgba(242, 38, 19, 0.9)',
+  //       color: 'white',
+  //       '&:hover': {
+  //         cursor: 'not-allowed'
+  //       }
+  //     }
+  //   }
+  // ];
 
   const props = {
     totalIncomes,
