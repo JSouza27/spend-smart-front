@@ -11,4 +11,5 @@ export interface ITransaction {
   invoiceDueDate: string;
   value: number;
   type: 'income' | 'expense';
+  isPaidOff: boolean;
 }
