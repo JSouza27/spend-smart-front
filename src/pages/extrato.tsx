@@ -42,8 +42,7 @@ const transactionSchema = z.object({
     ),
   type: z.enum(['income', 'expense'], {
     required_error: 'É necessário dizer se é uma despesa ou reita.'
-  }),
-  isPaidOff: z.boolean()
+  })
 });
 
 export type stateProps = z.infer<typeof transactionSchema>;
@@ -96,7 +95,6 @@ export default function Extrato() {
     methods.setValue('invoiceDueDate', formattedDate);
     methods.setValue('type', transaction.type);
     methods.setValue('value', transaction.value.toString());
-    methods.setValue('isPaidOff', transaction.isPaidOff || false);
 
     setShowModal(true);
   };
