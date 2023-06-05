@@ -14,7 +14,6 @@ export default function Table({ columns, data }: TableProps) {
         columns={columns}
         data={data}
         defaultSortFieldId={2}
-        pagination
         responsive
       />
     </S.Wrapper>

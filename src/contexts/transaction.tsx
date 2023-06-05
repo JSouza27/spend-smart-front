@@ -70,7 +70,7 @@ export function TransactionProvider({ children }: ProviderProps) {
 
       customExceptionHandler.execute();
     }
-  }, [date, isAuthenticated, user]);
+  }, [date, isAuthenticated, user, transactions]);
 
   useEffect(() => {
     if (isAuthenticated && user) getTransactionsPerMonth();
