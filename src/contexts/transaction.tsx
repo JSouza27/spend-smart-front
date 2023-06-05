@@ -12,6 +12,8 @@ import { CustomExceptionHandler } from '../common/exception/customExceptionHandl
 import { Collection } from '../server/core/firebase/collection/collection';
 import { ITransactionModel } from '../common/interfaces/transaction';
 import { useAuthentication } from './auth';
+import { parseCookies } from 'nookies';
+import { useRouter } from 'next/router';
 
 type TransactionContextData = {
   saveTransaction: (transaction: ITransactionModel) => void;
@@ -38,6 +40,7 @@ export function TransactionProvider({ children }: ProviderProps) {
   const [date, setDate] = useState(new Date());
   const [isEdit, setIsEdit] = useState(false);
   const { user, isAuthenticated } = useAuthentication();
+  const router = useRouter();
 
   const collection = new Collection();
   const service = new TransactionService(collection);
@@ -72,6 +75,14 @@ export function TransactionProvider({ children }: ProviderProps) {
   useEffect(() => {
     if (isAuthenticated && user) getTransactionsPerMonth();
   }, [getTransactionsPerMonth, date, isAuthenticated, user]);
+
+  useEffect(() => {
+    const { 'nextauth.token': token } = parseCookies();
+
+    if (!token) {
+      router.push('/');
+    }
+  }, []);
 
   const saveTransaction = async (transaction: ITransactionModel) => {
     try {
